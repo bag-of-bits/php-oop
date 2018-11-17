@@ -26,8 +26,12 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * Standard is to start curly braces on next line down after defining the class Name (Although not required)
 
 
-# ADDING PROPERTIES
+# ADDING AND ACCESSING PROPERTIES
 
 * When declaring properties their visibility must be defined by an access modifier (public, private, protected)
 
 * Access modifiers allow us to control access to our properties
+* To access an obects property use an arrow / dart. **e.g.) $objectName->propertyName;**
+* To change a property value use **$objectName->propertyName = "Type some value here";**
+* Change a property value is the same as changing a regular variable except that we first specify the object name and then use an arrow to point towards the property name.
+* We don't need to use $ in front of the property name since it's already in front of the object name.

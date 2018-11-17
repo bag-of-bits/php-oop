@@ -15,5 +15,15 @@ class Recipe
 
 // Instantiating a new instance of the class
 $recipe1 = new Recipe();
-// Dumping the var tells us the new object is an Object and is an instance of the class Recipe
-var_dump($recipe1);
+
+// Accessing the property of an object
+echo $recipe1->source . "<BR>"; // Displays "Chef Chuckie"
+
+// Change the value of an object's property
+$recipe1->source = "Grand Master Chef";
+// Now when we echo the object's same property it will be updated with the new value "Grand Master Chef"
+echo $recipe1->source . "<BR>";
+
+// More than one object can be built from the same class at the same time, each one independent of the others. Here we instantiate $recipe2
+$recipe2 = new Recipe();
+echo $recipe2->source . "<BR>"; // Displays default value "Chef Chuckie"
