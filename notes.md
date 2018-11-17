@@ -26,3 +26,8 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * Standard is to start curly braces on next line down after defining the class Name (Although not required)
 
 
+# ADDING PROPERTIES
+
+* When declaring properties their visibility must be defined by an access modifier (public, private, protected)
+
+* Access modifiers allow us to control access to our properties
