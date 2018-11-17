@@ -35,3 +35,15 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * To change a property value use **$objectName->propertyName = "Type some value here";**
 * Change a property value is the same as changing a regular variable except that we first specify the object name and then use an arrow to point towards the property name.
 * We don't need to use $ in front of the property name since it's already in front of the object name.
+
+
+# ADDING AND CALLING METHODS
+
+* Methods are class specific functions
+
+* When declaring a method we need to declare the visibility.
+* Naming convention for methods is camelCase and for the curley braces to start on the next line.
+* Within the method we descripe the action we want to perform.
+* PHP allows objects to reference themselves using the keyword variable *$this* which indicates we want to use the objects own property or method, and allows us to have access to them within the class scope. e.g.) $this->propertyName
+* Calling a method is the same as accessing a property, except we add round brackets at the end to specify we are calling a method.
+* E.g.) $objectName->objectMethod();
