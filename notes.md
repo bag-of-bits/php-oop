@@ -61,3 +61,10 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 
 * We can create a Setter Method to format the data before it gets stored to the object. The common naming convention is to use the word set before the name of the method.  e.g.) public function setName($name);
 * Methods also have access modifiers so you can create private methods that can only by other methods within the class, so they cannot be accessed directly from outside the class.
+
+
+# ARRAY AS PROPERTY
+
+* When creating a property that is an array, initialize it as an empty array(). This will make your code easier to read.
+* Create a Setter method to control the formatting
+* Create a Getter method for retrieval.
