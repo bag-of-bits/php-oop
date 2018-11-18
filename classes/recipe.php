@@ -54,8 +54,11 @@ class Recipe
             "item" => ucwords($item),
             "amount" => $amount,
             "measure" => strtolower($measure)
-        );
-        
+        );   
+    }
+
+    function getIngredients() {
+        return $this->ingredients;
     }
 
     // Methods - Naming convention is camelCase. Convention is for curley braces to start on the next line
@@ -65,12 +68,3 @@ class Recipe
     }
 
 }
-
-// Instantiating a new instance of the class
-$recipe1 = new Recipe();
-$recipe1->setTitle("spaghetti and meatballs");
-$recipe1->addIngredient("Sugar", 1, "tbsp"); // Works! 1 is a valid type and "tbsp" is in the $measurements property array
-$recipe1->addIngredient("Egg", 1); // Works! Measurement type is optional
-$recipe1->addIngredient("Flour");
-
-echo $recipe1->displayRecipe();
