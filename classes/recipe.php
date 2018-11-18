@@ -5,11 +5,11 @@ class Recipe
 {
     // Properties - Naming convention is camelCase
     private $title; 
-    public $ingredients = array();  // Initialize with empty array, makes class easier to read
-    public $instructions = array();
-    public $yield;
-    public $tag = array();
-    public $source = "Chef Chuckie";  // default value
+    private $ingredients = array();  // Initialize with empty array, makes class easier to read
+    private $instructions = array();
+    private $yield;
+    private $tags = array();
+    private $source = "Chef Chuckie";  // default value
     // Acceptable measurement types
     private $measurements = array(
         "tsp",
@@ -57,8 +57,50 @@ class Recipe
         );   
     }
 
-    function getIngredients() {
+    function getIngredients() 
+    {
         return $this->ingredients;
+    }
+
+    // Set instructions
+    function addInstruction($string)
+    {
+        $this->instructions[] = $string;
+    }
+
+    function getInstructions()
+    {
+        return $this->instructions;
+    }
+
+    function setYield($input)
+    {
+        $this->yield = $input;
+    }
+
+    function getYield()
+    {
+        return $this->yield;
+    }
+    
+    function addTag($tag)
+    {
+        $this->tags[] = strtolower($tag);
+    }
+
+    function getTags()
+    {
+        return $this->tags;
+    }
+
+    function setSource($author)
+    {
+        $this->source = ucwords($author);
+    }
+
+    function getSource()
+    {
+        return $this->source;
     }
 
     // Methods - Naming convention is camelCase. Convention is for curley braces to start on the next line
