@@ -47,3 +47,17 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * PHP allows objects to reference themselves using the keyword variable *$this* which indicates we want to use the objects own property or method, and allows us to have access to them within the class scope. e.g.) $this->propertyName
 * Calling a method is the same as accessing a property, except we add round brackets at the end to specify we are calling a method.
 * E.g.) $objectName->objectMethod();
+
+
+# ACCESS MODIFIERS
+
+* Controls the visibility of a property or method.
+
+* Three options are 1.) Public - Can be accessed from inside or outside the class. 2.) Protected - Can only be accessed within the class itself and by inheriting and parent classes. 3.) Private - Can only be accessed by the class that defines the member.
+
+### SANITIZING / FORMATTING DATA BEFORE IT'S STORED TO THE OBJECT
+
+* If we set a property directly we're at the mercy of whatever data is passed.
+
+* We can create a Setter Method to format the data before it gets stored to the object. The common naming convention is to use the word set before the name of the method.  e.g.) public function setName($name);
+* Methods also have access modifiers so you can create private methods that can only by other methods within the class, so they cannot be accessed directly from outside the class.
