@@ -98,11 +98,23 @@ Documentation: http://php.net/manual/en/language.oop5.static.php
 
 # MAGIC METHODS
 
-* Magic methods are defined with double underscore __. PHP reserves all function names starting with __ as magical.
+* SYNTAX: Magic methods are defined with double underscore __. PHP reserves all function names starting with __ as magical.
 
 * You never directly call magic methods. They're triggered by certain events in the program. That's the magic!
 * Two of the more commonly used magic methods are __contruct() and __toString().
 * __construct() allows us to assign values to properties the same time as we instantiate an object.
 * __toString() tells PHP how to convert an object to a string if called directly so we don't get a "failed to convert object to string" error message.
 
-http://php.net/manual/en/language.oop5.magic.php
+Documentation: http://php.net/manual/en/language.oop5.magic.php
+
+
+# MAGIC CONSTANTS
+
+* SYNTAX: Magic constants are defined with a double underscore before and after the constant name with the name all in UPPERCASE. e.g.) \_\_DIR__ 
+
+* Magic constants can provide us with details about our script and environment.
+* There are nine magical constants that change depending on where they are used. e.g.) The value of __LINE__ depends on the line that it's used on in your script.
+* Magical constants are resolved at compile time, unlike regular constants, which are resolved at runtime. 
+
+
+http://php.net/manual/en/language.constants.predefined.php

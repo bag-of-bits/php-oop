@@ -23,8 +23,9 @@ class Recipe
         "gallon"
     );
   
-    // Magic Methods
-    // __construct allows us to assign values to properties at the same time as we instantiate the object. null means optional 
+    // Magic Methods and Magic Constants // e.g.) Magic Method: __construct  Magic Constant: __DIR__
+
+    // Allows us to assign values to properties at the same time as we instantiate the object. null means optional 
     public function __construct($title = null)
     {
         $this->setTitle($title);
@@ -32,9 +33,21 @@ class Recipe
 
     // Specifies how we want to convert this object to a string. If we call the object directly it will get the title.
     // E.g.) echo $recipe would normally return an error saying failed to convert object to string. Now it will return the title.
+    // For security reasons you should NOT display the full directory path on a production server. It can give hackers more info that you want.
     public function __toString()
     {
-        return $this->getTitle();
+        $output = "<b>Class name of object:</b> " . __CLASS__ . "<BR>";
+        $output .= "<b>Title:</b> " . $this->getTitle() . "<BR>";
+        $output .= "<b>Full path:</b> " . __FILE__ . "<BR>";
+        $output .= "<b>Base name:</b> " . basename(__FILE__) . "<BR>";
+        // __DIR__ is useful when you want to link to another file within the same directory as this file.
+        // It even works if this file is included in another file.
+        $output .= "<b>Full path without basename:</b>" . __DIR__ . "<BR>";
+        $output .= "<b>Line Number</b>: " . __LINE__ . "<BR>";
+        $output .= "<b>Class method name:</b> : " . __METHOD__ . "<BR>";
+        $output .= "<b>The following methods are available for objects of this " . __CLASS__ . " class:</b><BR>";
+        $output .= implode("<BR>", get_class_methods(__CLASS__));
+        return $output;
     }
 
     // Setters and Getters

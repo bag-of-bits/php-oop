@@ -31,7 +31,3 @@ echo Render::displayRecipe($recipe1);
 // failed to convert the object to a string, but we created a __toString magic method so it now knows how
 // to handle this and will convert to a string as we instructed when called directly. 
 echo $recipe1;
-echo $recipe1;
-echo $recipe1;
-echo $recipe1;
-echo $recipe1;
