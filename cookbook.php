@@ -1,6 +1,7 @@
 <?php
 // Include files
 include 'classes/recipe.php';
+include 'classes/render.php';
 
 // Instantiating a new instance of class Recipe
 $recipe1 = new Recipe();
@@ -24,7 +25,9 @@ $recipe1->setYield("Serves 6");
 $recipe1->setSource("fred flinstone"); // Overwrites the default source "Chef Chuckie"
 
 // Display recipe title
-echo $recipe1->displayRecipe() . "<BR>";
+// echo $recipe1->displayRecipe() . "<BR>"; // Change this line because we made this method static
+// Static method Format:  ClassName::methodName($recipe); 
+echo Render::displayRecipe($recipe1);
 // Display recipe ingredients
 foreach($recipe1->getIngredients() as $ing) {
     echo $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'] . "<BR>";

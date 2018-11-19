@@ -66,5 +66,30 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 # ARRAY AS PROPERTY
 
 * When creating a property that is an array, initialize it as an empty array(). This will make your code easier to read.
-* Create a Setter method to control the formatting
+* Create a Setter method to control the formatting.
 * Create a Getter method for retrieval.
+
+
+# SINGLE RESPONSIBILITY TENET OF PROGRAMMING
+
+* Every module or class should have responsibility over a single part of the functionality provided by the software.
+
+* That responsibility should be entirely encapsulated / contained by the class.
+* A class should have only two reasons to change with both changes depending on the user:
+    1. The content of the report can change
+
+    2. The format / display of the report can change
+* E.g.) Setting and Getting data may be the main concerns of methods in a class, but displaying data can change based on where we're using that data, not what data we're using.
+* A class is a way to organize code and group the functionality and data in a logical manner, but any methods that deal with the display or rendering of data should be put in a separate group, such as creating a new file in the classes directory named render.php
+
+
+# STATIC METHODS
+
+* Accessible without needing an instantiation of the class. 
+
+* A property declared as static cannot be accessed with an instantiated class object (though a static method can).
+* The pseudo-variable *$this* is not available inside the method declared as static because static methods are callable without an instance of the object created.
+* Static properties cannot be accessed through the object using the arrow operator ->
+* 
+
+Documentation: http://php.net/manual/en/language.oop5.static.php

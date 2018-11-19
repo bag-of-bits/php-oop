@@ -103,10 +103,4 @@ class Recipe
         return $this->source;
     }
 
-    // Methods - Naming convention is camelCase. Convention is for curley braces to start on the next line
-    public function displayRecipe()
-    {
-        return $this->title . " by " . $this->source;
-    }
-
 }
