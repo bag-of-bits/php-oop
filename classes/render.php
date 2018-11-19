@@ -41,14 +41,15 @@ class Render
         // return $this->title . " by " . $this->source;   // Old code when it was inside of the class, before we made it static
         // We are nolonger in the same class so we can't access it directy and need to use our "Getters"
         $output = "";
-        $output .= $recipe->gettitle() . " by " . $recipe->getSource();
+        $output .= "<b>" . $recipe->gettitle() . " by " . $recipe->getSource() . "</b>";
         $output .= "<BR>";
         $output .= "<em>" . implode(", ", $recipe->getTags()) . "</em>";
-        $output .= "<BR>";
+        $output .= "<BR><BR>";
         // Use self:: to call another static method within the same
         $output .= self::listIngredients($recipe->getIngredients());
-        $output .= implode("<BR>", $recipe->getInstructions());
         $output .= "<BR>";
+        $output .= implode("<BR>", $recipe->getInstructions());
+        $output .= "<BR><BR>";
         $output .= "<em>" . $recipe->getYield() . "</em>";
         $output .= "<HR>";
         return $output;
