@@ -27,7 +27,5 @@ $recipe1->setSource("fred flinstone"); // Overwrites the default source "Chef Ch
 // Static method Format:  ClassName::methodName($objectInstance); 
 echo Render::displayRecipe($recipe1);
 
-// Normally if we call an object directly such as the code below would return and error stating that it
-// failed to convert the object to a string, but we created a __toString magic method so it now knows how
-// to handle this and will convert to a string as we instructed when called directly. 
-echo $recipe1;
+// Since we dont' have an object we can just echo new Render();
+echo new Render();
