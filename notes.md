@@ -90,6 +90,6 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * A property declared as static cannot be accessed with an instantiated class object (though a static method can).
 * The pseudo-variable *$this* is not available inside the method declared as static because static methods are callable without an instance of the object created.
 * Static properties cannot be accessed through the object using the arrow operator ->
-* 
+* ClassName::methodName($objectInstance);
 
 Documentation: http://php.net/manual/en/language.oop5.static.php

@@ -26,15 +26,5 @@ $recipe1->setSource("fred flinstone"); // Overwrites the default source "Chef Ch
 
 // Display recipe title
 // echo $recipe1->displayRecipe() . "<BR>"; // Change this line because we made this method static
-// Static method Format:  ClassName::methodName($recipe); 
+// Static method Format:  ClassName::methodName($objectInstance); 
 echo Render::displayRecipe($recipe1);
-// Display recipe ingredients
-foreach($recipe1->getIngredients() as $ing) {
-    echo $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'] . "<BR>";
-}
-// Display recipe instructions
-echo implode("<BR>", $recipe1->getInstructions()) . "<BR>";
-// Display recipe tags
-echo implode(", ", $recipe1->getTags()) . "<BR>";
-// Display yield
-echo $recipe1->getYield();

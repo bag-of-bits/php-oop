@@ -13,6 +13,18 @@ class Render
     {
         // return $this->title . " by " . $this->source;   // Old code when it was inside of the class, before we made it static
         // We are nolonger in the same class so we can't access it directy and need to use our "Getters"
-        return $recipe->gettitle() . " by " . $recipe->getSource();
+        $output = "";
+        $output .= $recipe->gettitle() . " by " . $recipe->getSource();
+        $output .= "<BR>";
+        $output .= "<em>" . implode(", ", $recipe->getTags()) . "</em>";
+        $output .= "<BR>";
+        foreach($recipe->getIngredients() as $ing) {
+            $output .= $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'] . "<BR>";
+        }
+        $output .= implode("<BR>", $recipe->getInstructions());
+        $output .= "<BR>";
+        $output .= "<em>" . $recipe->getYield() . "</em>";
+        $output .= "<HR>";
+        return $output;
     }
 }
