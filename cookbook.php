@@ -4,9 +4,7 @@ include 'classes/recipe.php';
 include 'classes/render.php';
 
 // Instantiating a new instance of class Recipe
-$recipe1 = new Recipe();
-// Set Title
-$recipe1->setTitle("spaghetti and meatballs");
+$recipe1 = new Recipe("spaghetti and meatballs"); // Set title same time as instantiated object
 // Add Ingredients
 $recipe1->addIngredient("Sugar", 1, "tbsp"); // Works! 1 is a valid type and "tbsp" is in the $measurements property array
 $recipe1->addIngredient("Egg", 1); // Works! Measurement type is optional
@@ -28,3 +26,12 @@ $recipe1->setSource("fred flinstone"); // Overwrites the default source "Chef Ch
 // echo $recipe1->displayRecipe() . "<BR>"; // Change this line because we made this method static
 // Static method Format:  ClassName::methodName($objectInstance); 
 echo Render::displayRecipe($recipe1);
+
+// Normally if we call an object directly such as the code below would return and error stating that it
+// failed to convert the object to a string, but we created a __toString magic method so it now knows how
+// to handle this and will convert to a string as we instructed when called directly. 
+echo $recipe1;
+echo $recipe1;
+echo $recipe1;
+echo $recipe1;
+echo $recipe1;

@@ -94,3 +94,15 @@ Grouping code like this keeps your code DRY, saves time, adds modularity, makes 
 * ClassName::methodName($objectInstance);  // How to access Static Methods
 
 Documentation: http://php.net/manual/en/language.oop5.static.php
+
+
+# MAGIC METHODS
+
+* Magic methods are defined with double underscore __. PHP reserves all function names starting with __ as magical.
+
+* You never directly call magic methods. They're triggered by certain events in the program. That's the magic!
+* Two of the more commonly used magic methods are __contruct() and __toString().
+* __construct() allows us to assign values to properties the same time as we instantiate an object.
+* __toString() tells PHP how to convert an object to a string if called directly so we don't get a "failed to convert object to string" error message.
+
+http://php.net/manual/en/language.oop5.magic.php

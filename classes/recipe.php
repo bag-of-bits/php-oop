@@ -22,34 +22,48 @@ class Recipe
         "quart",
         "gallon"
     );
+  
+    // Magic Methods
+    // __construct allows us to assign values to properties at the same time as we instantiate the object. null means optional 
+    public function __construct($title = null)
+    {
+        $this->setTitle($title);
+    }
+
+    // Specifies how we want to convert this object to a string. If we call the object directly it will get the title.
+    // E.g.) echo $recipe would normally return an error saying failed to convert object to string. Now it will return the title.
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     // Setters and Getters
     public function setTitle($title)
     {
-        $this->title = ucwords($title);
+        // Sets title value as null if a null value is passed when we instantiate the recipe object
+        if(empty($title)) {
+            $this->title = null;
+        } else {
+            $this->title = ucwords($title);
+        }
     }
     public function getTitle()
     {
         return $this->title;
     }
 
-    // Setter that accepts three arguments so we can control the format
-    // Only $item is required, $amount and $measure are optional so we pass a default value of null
-    // E.g.) 1 tsp sugar
+    // Setter that accepts three args, $item is the only required $arg, the other two are optional.
     public function addIngredient($item, $amount = null, $measure = null)
     {
-        // Conditional to control the format of $amount that makes sure the type is either a float or integer.
-        // Otherwise we exit the script and an error message is displayed. 
-        // Used !is_null($amount) function instead of $amount != null which instructor used. Gives the same result. 
+        // Controls the format of $amount to make sure the type is either a float or integer.
         if(!is_null($amount) && !is_float($amount) && !is_int($amount)) {
             exit("The amount must be a float or an integer: " . gettype($amount) . " \"" . $amount . "\" was given");
         }
-        // Contitional to ensure a valid measurement type is used. Valid measurements are indicated in $measurements property
+        // Check to see if the $measure passed is a valid measurement and exists in the $measurements property array.
         if(!is_null($measure) && !in_array(strtolower($measure), $this->measurements)) {
             exit("Please enter a valid measurement: " . implode(", ", $this->measurements));
         }
 
-        // Ingredients is a list that has a sub-array that is an associative
-        // The sub-array has 3 items, 1 for each arg passed to the addIngredient() function
         $this->ingredients[] = array(
             "item" => ucwords($item),
             "amount" => $amount,
@@ -57,48 +71,48 @@ class Recipe
         );   
     }
 
-    function getIngredients() 
+    public function getIngredients() 
     {
         return $this->ingredients;
     }
 
     // Set instructions
-    function addInstruction($string)
+    public function addInstruction($string)
     {
         $this->instructions[] = $string;
     }
 
-    function getInstructions()
+    public function getInstructions()
     {
         return $this->instructions;
     }
 
-    function setYield($input)
+    public function setYield($input)
     {
         $this->yield = $input;
     }
 
-    function getYield()
+    public function getYield()
     {
         return $this->yield;
     }
     
-    function addTag($tag)
+    public function addTag($tag)
     {
         $this->tags[] = strtolower($tag);
     }
 
-    function getTags()
+    public function getTags()
     {
         return $this->tags;
     }
 
-    function setSource($author)
+    public function setSource($author)
     {
         $this->source = ucwords($author);
     }
 
-    function getSource()
+    public function getSource()
     {
         return $this->source;
     }
